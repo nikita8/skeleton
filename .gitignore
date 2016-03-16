@@ -1,0 +1,24 @@
+*.gem
+*.rbc
+.bundle
+.config
+.capistrano
+coverage
+InstalledFiles
+lib/bundler/man
+pkg
+rdoc
+spec/reports
+test/tmp
+test/version_tmp
+tmp
+config/*.yml
+!config/*.example.yml
+
+# YARD artifacts
+.yardoc
+_yardoc
+doc/
+*.rdb
+*.log
+*.pid

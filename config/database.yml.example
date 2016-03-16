@@ -1,0 +1,12 @@
+defaults: &defaults
+  adapter: postgresql
+  host: 127.0.0.1
+  encoding: UTF8
+  username: postgres
+  database: test
+
+development:
+  <<: *defaults
+
+test:
+  <<: *defaults

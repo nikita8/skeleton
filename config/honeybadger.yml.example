@@ -1,0 +1,12 @@
+---
+defaults: &defaults
+  logging:
+    level: 'WARN'
+
+api_key: 'api_key'
+
+staging:
+  <<: *defaults
+
+production:
+  <<: *defaults

@@ -1,0 +1,13 @@
+defaults: &defaults
+  host: 127.0.0.1
+  port: 6379
+  username: username
+  password: password
+  db: 11
+
+development:
+  <<: *defaults
+
+test:
+  <<: *defaults
+  db: 12

@@ -1,0 +1,6 @@
+development:
+  app_url: 'dev.example.com'
+test:
+  app_url: 'test.example.com'
+production:
+  app_url: 'production.example.com'
