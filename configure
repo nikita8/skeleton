@@ -2,11 +2,11 @@
 # To Copy and rename the yml files in the config directory:-
 #   * Type './configure'  in terminal.
 
-cp config/database.example.yml config/database.yml
-cp config/app.example.yml config/app.yml
-cp config/rabbitmq.example.yml config/rabbitmq.yml
-cp config/redis.example.yml config/redis.yml
-cp config/consumers.example.yml config/consumers.yml
-cp config/honeybadger.example.yml config/honeybadger.yml
+cp config/database.yml.example config/database.yml
+cp config/app.yml.example config/app.yml
+cp config/rabbitmq.yml.example config/rabbitmq.yml
+cp config/redis.yml.example config/redis.yml
+cp config/consumers.yml.example config/consumers.yml
+cp config/honeybadger.yml.example config/honeybadger.yml
 
 mkdir -p log
