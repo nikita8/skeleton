@@ -12,7 +12,7 @@ end
 
 desc 'API Routes'
 task :routes do
-  SkillManager::App.routes.each do |api|
+  ApplicationModule::App.routes.each do |api|
     method = api.route_method.ljust(10)
     path = api.route_path
     description = api.route_description
