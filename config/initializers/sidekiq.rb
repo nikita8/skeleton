@@ -1,4 +1,4 @@
-sidekiq_config = YAML::load(File.open("#{Rails.root}/config/redis.yml"))[Rails.env]
+sidekiq_config = YAML::load(File.open("#{App.root}/config/redis.yml"))[ENV['RACK_ENV']]
 sidekiq_db = sidekiq_config['db'] || 0
 
 Sidekiq.configure_server do |config|

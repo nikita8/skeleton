@@ -1,4 +1,5 @@
 ---
+:require: <%= FileUtils.pwd %>/boot.rb
 :concurrency: 5
 :queues:
   - default
