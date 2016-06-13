@@ -5,4 +5,12 @@ logger = AppLogger.logger
 use Middleware::JsonLogger, logger
 use ActiveRecord::ConnectionAdapters::ConnectionManagement
 use Rack::UTF8Sanitizer
+honeybadger_config = HoneybadgerConfiguration::Connector.establish_connection
+use Honeybadger::Rack::ErrorNotifier, honeybadger_config
+use Honeybadger::Rack::MetricsReporter, honeybadger_config
+
 run ApplicationModule::APP
+
+map '/sidekiq' do
+  run Sidekiq::Web
+end
