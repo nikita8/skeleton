@@ -40,7 +40,8 @@ set :tmp_dir, "/home/#{fetch(:user)}"
 # Defaults to: 'default'
 set :chruby_ruby, File.read('.ruby-version').match(/\S*/).to_s
 
-set :chruby_map_bins, fetch(:chruby_map_bins, []).concat(%w(unicorn honeybadger))
+set :chruby_map_bins,
+    fetch(:chruby_map_bins, []).concat(%w(unicorn honeybadger))
 
 # capistrano-bundler
 # By default, the plugin adds bundle exec prefix to common executables listed in

@@ -14,7 +14,9 @@ module Hutch
 
     def config
       # assuming hutch config file in one dir up
-      YAML.load_file(File.expand_path('../../rabbitmq.yml', __FILE__))[ENV['RACK_ENV']]
+      YAML.load_file(
+        File.expand_path('../../rabbitmq.yml', __FILE__)
+      )[ENV['RACK_ENV']]
     end
   end
 end

@@ -12,7 +12,6 @@ gem 'grape'
 gem 'grape-activerecord'
 gem 'grape-entity'
 
-
 gem 'honeybadger', '~> 2.3'
 
 # Rabbitmq messaging client
@@ -38,7 +37,7 @@ gem 'rake'
 gem 'redis'
 
 ### Async Processing ###
-gem "sidekiq-cron", "~> 0.4.0"
+gem 'sidekiq-cron', '~> 0.4.0'
 gem 'sidekiq'
 gem 'state_machine', github: 'sprout/state_machine'
 

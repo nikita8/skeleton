@@ -4,13 +4,13 @@ module API
     module Entities
       # Item presentation entity
       # class Item < Grape::Entity
-        # expose :uid,
-        #        as: 'id',
-        #        documentation:
-        #         {
-        #           type: 'String',
-        #           desc: 'Identifier for item.'
-        #         }
+      # expose :uid,
+      #        as: 'id',
+      #        documentation:
+      #         {
+      #           type: 'String',
+      #           desc: 'Identifier for item.'
+      #         }
       # end
     end
   end
