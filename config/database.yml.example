@@ -3,10 +3,11 @@ defaults: &defaults
   host: 127.0.0.1
   encoding: UTF8
   username: postgres
-  database: test
 
 development:
   <<: *defaults
+  database:
 
 test:
   <<: *defaults
+  database:
