@@ -20,6 +20,11 @@ module ApplicationModule
       authenticate
     end
 
+    # service heartbeat
+    get '/status' do
+      { message: 'still alive ...' }
+    end
+
     mount API::Base
   end
 end
