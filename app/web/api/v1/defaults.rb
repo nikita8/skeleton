@@ -1,6 +1,6 @@
 module API
   module V1
-    # Default methods used in V1 controllers
+    # Default methods used in API::V1
     module Defaults
       extend ActiveSupport::Concern
       # common Grape settings
