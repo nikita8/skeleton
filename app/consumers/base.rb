@@ -13,7 +13,6 @@ Dir[File.join(root_path, 'lib', '*.rb')].each { |f| require f }
 Dir[File.join(root_path, 'app', 'models', '*.rb')].each { |f| require f }
 
 module Consumer
-  # :nodoc:
   module Base
     private
 

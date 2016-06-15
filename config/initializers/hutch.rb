@@ -2,7 +2,6 @@ require 'hutch'
 require File.expand_path(File.expand_path('../../../lib/app_logger', __FILE__))
 # Hutch connection to rabbitmq-server wrapper
 module Hutch
-  # :nodoc:
   module Connector
     module_function
 

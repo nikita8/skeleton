@@ -2,7 +2,6 @@ Dir[File.join(File.dirname(__FILE__), '*.rb')].each { |f| require f }
 
 module API
   module V1
-    #:nodoc:
     class Base < Grape::API
       include API::V1::Defaults
       # mount base API
