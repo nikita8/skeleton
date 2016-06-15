@@ -2,8 +2,8 @@
 env = ENV['RACK_ENV'] || ENV['RAILS_ENV'] || 'development'
 
 # enable out of band gc out of the box, it is low risk and improves perf a lot
-#This is not necessary for ruby > 2.2
-ENV['UNICORN_ENABLE_OOBGC'] ||= "1"
+# This is not necessary for ruby > 2.2
+ENV['UNICORN_ENABLE_OOBGC'] ||= '1'
 
 if env == 'development'
   wd = shared_path = app_path = File.expand_path('../../', __FILE__)
@@ -12,14 +12,15 @@ if env == 'development'
   pid_file = "#{tmp_path}/unicorn.pid"
   socket_file = "#{tmp_path}/unicorn.sock"
 else
-  #relative path from unicorn.rb file
+  # relative path from unicorn.rb file
   app_path = File.expand_path('../../../..', __FILE__)
   shared_path = "#{app_path}/shared"
   wd = "#{app_path}/current"
 
-  # We want minimum numbers of workers and the ability to increase workers without deployments.
-  #Machine time should determine the number of workers anyway !!!!
-  total_processes = (ENV["UNICORN_WORKERS"] || 2).to_i
+  # We want minimum numbers of workers and
+  # the ability to increase workers without deployments.
+  # Machine time should determine the number of workers anyway !!!!
+  total_processes = (ENV['UNICORN_WORKERS'] || 2).to_i
   pid_file = "#{shared_path}/tmp/pids/unicorn.pid"
   socket_file = "#{shared_path}/tmp/sockets/unicorn.sock"
 end
@@ -30,7 +31,7 @@ working_directory wd
 pid pid_file
 
 # listen
-listen (ENV["UNICORN_PORT"] || socket_file), :backlog => 64
+listen (ENV['UNICORN_PORT'] || socket_file), backlog: 64
 
 # nuke workers after 30 seconds instead of 60 seconds (the default)
 timeout 30
@@ -52,7 +53,7 @@ preload_app true
 # fast LAN.
 check_client_connection false
 
-before_exec do |server|
+before_exec do |_server|
   ENV['BUNDLE_GEMFILE'] = "#{wd}/Gemfile"
 end
 initialized = false
@@ -66,7 +67,7 @@ before_fork do |server, worker|
 
   end
 
-  #replace workers one at a time :) , memory-friendly
+  # replace workers one at a time :) , memory-friendly
   old_pid = "#{server.config[:pid]}.oldbin"
 
   if old_pid != server.pid
@@ -74,15 +75,17 @@ before_fork do |server, worker|
       sig = (worker.nr + 1) >= server.worker_processes ? :QUIT : :TTOU
       Process.kill(sig, File.read(old_pid).to_i)
     rescue Errno::ENOENT, Errno::ESRCH
+      File.open(stderr_path, 'a+') do |file|
+        file.puts 'Exception occured while trying to kill old unicorn process'
+      end
     end
   end
 
-  #we gonna reconnect in childs
-  if defined?(ActiveRecord::Base)
-    ActiveRecord::Base.connection.disconnect!
-  end
+  # we gonna reconnect in childs
+  ActiveRecord::Base.connection.disconnect! if defined?(ActiveRecord::Base)
 
-  # if redis-rb is used, it connects on demand. So the master never opens up a socket
+  # if redis-rb is used, it connects on demand.
+  # So the master never opens up a socket
   # $redis.client.disconnect
 
   # Throttle the master from forking too quickly by sleeping.  Due
@@ -92,9 +95,6 @@ before_fork do |server, worker|
   sleep 2
 end
 
-after_fork do |server, worker|
-  if defined?(ActiveRecord::Base)
-    ActiveRecord::Base.establish_connection
-  end
+after_fork do |_server, _worker|
+  ActiveRecord::Base.establish_connection if defined?(ActiveRecord::Base)
 end
-

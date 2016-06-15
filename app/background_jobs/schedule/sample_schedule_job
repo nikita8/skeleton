@@ -1,0 +1,8 @@
+module BackgroundJobs
+  module Schedule
+    class SampleScheduleJob
+       include Sidekiq::Worker
+       # code here
+    end
+  end
+end

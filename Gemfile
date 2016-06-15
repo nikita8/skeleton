@@ -5,19 +5,23 @@ ruby File.read('.ruby-version').match(/\S*/).to_s
 gem 'activesupport-json_encoder', github: 'rails/activesupport-json_encoder'
 gem 'api-pagination'
 
+# HTTP client
+gem 'faraday'
+
 gem 'grape'
 gem 'grape-activerecord'
 gem 'grape-entity'
 
 gem 'honeybadger', '~> 2.3'
 
-gem 'httparty'
+# Rabbitmq messaging client
 gem 'hutch'
 gem 'sidekiq'
-
-gem 'json'
+gem 'sidekiq-cron', '~> 0.4.0'
 
 gem 'kaminari', require: 'kaminari/grape'
+
+gem 'multi_json'
 
 gem 'newrelic-grape'
 gem 'newrelic-redis'
@@ -31,6 +35,11 @@ gem 'rack-cors'
 gem 'rack-utf8_sanitizer'
 gem 'rake'
 gem 'redis'
+
+### Async Processing ###
+gem 'sidekiq-cron', '~> 0.4.0'
+gem 'sidekiq'
+gem 'state_machine', github: 'sprout/state_machine'
 
 gem 'tux'
 
@@ -66,7 +75,6 @@ group :test do
   gem 'rspec'
   gem 'shoulda-matchers'
   gem 'simplecov', require: false
-  gem 'timecop'
 end
 
 group :production do
