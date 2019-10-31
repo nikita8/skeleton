@@ -9,7 +9,7 @@ gem 'grape'
 gem 'grape-activerecord'
 gem 'grape-entity'
 
-gem 'honeybadger', '~> 2.3'
+gem 'honeybadger'
 
 gem 'httparty'
 gem 'hutch'
