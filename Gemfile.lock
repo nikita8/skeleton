@@ -1,5 +1,5 @@
 GIT
-  remote: git://github.com/rails/activesupport-json_encoder.git
+  remote: https://github.com/rails/activesupport-json_encoder.git
   revision: d874fd9dbf2d558eac87893578e8e7970f1581a5
   specs:
     activesupport-json_encoder (1.1.0)
@@ -162,7 +162,9 @@ GEM
       nokogiri (>= 1.5.9)
     lumberjack (1.0.10)
     method_source (0.8.2)
-    mimemagic (0.3.1)
+    mimemagic (0.4.3)
+      nokogiri (~> 1)
+      rake
     mini_portile2 (2.0.0)
     minitest (5.8.4)
     multi_json (1.11.2)
@@ -194,7 +196,7 @@ GEM
     pry-byebug (3.3.0)
       byebug (~> 8.0)
       pry (~> 0.10)
-    rack (1.6.4)
+    rack (1.6.13)
     rack-accept (0.4.5)
       rack (>= 0.4)
     rack-contrib (1.4.0)
