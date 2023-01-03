@@ -1,5 +1,5 @@
 GIT
-  remote: git://github.com/rails/activesupport-json_encoder.git
+  remote: https://github.com/rails/activesupport-json_encoder.git
   revision: d874fd9dbf2d558eac87893578e8e7970f1581a5
   specs:
     activesupport-json_encoder (1.1.0)
@@ -140,8 +140,8 @@ GEM
       httparty
       mimemagic
     honeybadger (2.5.3)
-    httparty (0.13.7)
-      json (~> 1.8)
+    httparty (0.21.0)
+      mini_mime (>= 1.0.0)
       multi_xml (>= 0.5.2)
     hutch (0.21.0)
       activesupport (>= 3.0)
@@ -162,11 +162,14 @@ GEM
       nokogiri (>= 1.5.9)
     lumberjack (1.0.10)
     method_source (0.8.2)
-    mimemagic (0.3.1)
+    mimemagic (0.4.3)
+      nokogiri (~> 1)
+      rake
+    mini_mime (1.1.2)
     mini_portile2 (2.0.0)
     minitest (5.8.4)
     multi_json (1.11.2)
-    multi_xml (0.5.5)
+    multi_xml (0.6.0)
     nenv (0.3.0)
     net-scp (1.2.1)
       net-ssh (>= 2.6.5)
